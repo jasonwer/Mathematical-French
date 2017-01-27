@@ -1,0 +1,667 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage{amssymb,amsmath,cite}
+%\usepackage{bm}%
+%\usepackage{accents}
+\usepackage[frenchb]{babel}
+\usepackage[french]
+
+\setlength{\textheight}{23cm}
+\setlength{\textwidth}{16cm}
+\setlength{\topmargin}{0cm}
+\setlength{\headheight}{0pt}
+\setlength{\oddsidemargin}{0pt}
+\setlength{\evensidemargin}{0pt}
+%\setlength{\unitlength}{0.7mm}
+%
+\def\beq{\begin{equation}}
+\def\eeq{\end{equation}}
+\def\bea{\begin{eqnarray*}}
+\def\eea{\end{eqnarray*}}
+\def\nn{\nonumber}
+\def\cga{\mathfrak{g}_{\ell}}
+\def\bra#1{\left\langle #1\right|}
+\def\ket#1{\left| #1\right\rangle}
+\def\bracket#1#2{\left\langle #1 | #2 \right\rangle}
+\def\NN{ {\mathbb Z}^{+} }
+\def\N0{ {\mathbb Z}_{+} }
+\def\v0{ |d,r) }
+\def\del#1{\partial_{#1}}
+\def\Z{{\mathbb Z}}
+\def\half{\frac{1}{2}}
+\def\VM{V^{\delta,\mu}}
+\def\hwv{\ket{\delta,\mu}}
+%\def\a#1{ a_{#1} }
+\def\a#1{ a(#1) }
+\def\rket#1{ | #1 ) }
+\def\proof#1{{\bf Proof:} #1 $\blacksquare$ \medskip}
+\def\id{\mbox{id}}
+\def\pp{\phantom{\frac12}}
+%
+%\renewcommand{\thesection}{\Roman{section}.}
+%\renewcommand{\theequation}{\thesection.\arabic{equation}}
+%\renewcommand{\theequation}{\arabic{section}.\arabic{equation}}
+%\renewcommand{\thefigure}{\thesection.\arabic{figure}}
+%
+\newtheorem{lemma}{Lemma}%[section]
+\newtheorem{prop}[lemma]{Proposition}
+\newtheorem{thm}[lemma]{Theorem}
+\newtheorem{cor}[lemma]{Corollary}
+%
+%Use $\Box$ and $\surd$ for checkbox and tick.
+%
+\begin{document}
+
+\begin{center}
+{\large\bf French for Homological Algebra via Tohoku }\\
+~~\\
+
+{\large Jason L. Werry}\\
+~~\\
+\today
+~~\\
+
+\begin{abstract}
+This exposition focuses on the foundational paper 'Sur quelques points d'algèbre homologique' by Grothendieck (otherwise known as 'Tohoku'). Related papers are used initially as a source of examples. The goal is to quickly develop the confidence required to read [Tok] (and other related material such as [BBD]) in French with the occasional use of a dictionary and without the blind use of technology.
+\end{abstract}
+
+\end{center}
+
+% \begin{flushright}
+% May 9, 2012
+% \end{flushright}
+% 
+% \begin{tableofcontents}
+% \end{tableofcontents}
+
+\section{Introduction}
+
+%A quick look at the list of cognates below will give an indication as to the mathematical background to not only translate French into English but to translate the resulting English into mathematical knowledge. With practice, the middle step should hopefully not be required. For students, Aluffi [2] should fill in any lack of foundation in algebra. I have found the first half of Kashiwara and Schapira [3] best for category theory. For sheaf theory, something else? Chapters III and IV of Gelfand and Manin [5] are commonly recommended for the important concept of a derived category (the 2nd edition is essential due to the errata within the first) . Of course for algebraic geometry there are a range of books - my favorite is Shafarevich.
+
+For acquiring a broad reading ability of the sciences in French, the books [6] and [7] are recommended. The strength of these books is in their method of presentation which skillfully leverage the reader's knowledge of English and teaches the most commonly encountered constructs first. Unfortunately for us, even with the focus of these books on the sciences, their vocabulary coverage is still too general for a time-constrained mathematician to memorize. This article, while heavily influenced by their presentation, will shift focus to the language used within [Tok]. Essentially, these notes are the record of the author's own attempt to learn mathematical French but organised in a way that may also assist others. \textbf{This is a work in progress.}
+
+\newpage
+\section{French vocabulary}
+We will obtain our vocabulary and examples from 'Faisceaux Pervers', with [Tok], [BBG], [EGA] and [Ill] being used for further examples. Note that while many French words carry across to English with little or no change in meaning we will use a more formal and mathematical meaning. For example 'beaucoup' in conversation may mean 'a lot' but here we will translate it as 'many'.
+
+\subsection{Cognates}
+The most well behaved vocabulary class is that of the cognates. History has provided an overlap between French and English but care must be taken with the so called false-friends - words that look the same but have a very different meaning.
+
+\subsubsection{Exact Cognates}
+These words have the same spelling as the corresponding English word but may have broader meaning.
+\begin{center}
+	\begin{tabular}{lll}
+		 assertion & base & cause \\
+		 section & notation & définition \\
+		 détail & référence & introduction \\
+		 condition & construction & notes \\
+		 application & international & observation \\
+		 construction & contravariant & conséquence \\
+		 consideration & interpretation & général\\
+		 situation & image & notion\\
+		 excellent & complète & coincide\\
+		 multiplicative & noethérien & dimension \\
+		 catégories & complexes & affine \\
+		 extension & général & index \\
+		 dual & existence & équivalent \\
+		 quasi- & bi- & hyper- \\
+		 image & intersection & précise \\
+		 limite & membre & morphisme \\
+		 module & preprint   & naturel \\
+		 notation & évidence  & paire \\
+		 passage & position & problème \\
+		 rotation & stable & structure \\
+		 spectral & families &
+		 	\end{tabular}
+\end{center}
+\begin{center}
+	\begin{tabular}{lll}
+		 translation & variable & stable \\
+		 solution & note & long\\
+		 fraction & analogue & triangle \\
+		 injection & projection & quotient\\
+		 inversion & couple &structure \\
+		 inclusion & flasque & inductive \\
+		 unique & definition & simple \\
+		 base & restriction & semi-simple \\
+		 group & additive &  axiom  \\
+		 global & cone  &  type \\
+		 rotation & t-structure & t-exact \\
+		 pull-back & proposition & précise 
+	\end{tabular}
+\end{center}
+
+Furthermore, some words are easily recognizable since their spellings only differ slightly from their English counterparts.
+\begin{center}
+	\begin{tabular}{lll}
+axiome& complexe& diagonale \\ 
+résulte(*) & exacte& exemple  \\
+ morphisme & isomorphisme & épimorphisme\\
+ monomorphisme & intervalle & objet \\
+ essentiel& groupe & transforme\\
+  terme& théorème & triviale \\
+  résulte & orthogonale & problème \\
+  formalisme & universelle & propriété \\
+  usuel & resulte & générateur \\
+  résolvant & généralités & critères (criteria) \\
+	\end{tabular}
+\end{center}
+
+\subsubsection{Cognates ending in -ie or -é}
+By replacing an \textbf{-ie} or \textbf{-é} ending within a French noun with \textit{-y} the corresponding English word may often be recognized.
+\begin{center}
+	\begin{tabular}{lll}
+		catégorie & dualité & théorie \\
+		géométrie & homologie & cohomologie \\
+		variété &  homotopie &  identité \\
+		ambiguité & quantité & topologie
+	\end{tabular}
+\end{center}
+
+\subsubsection{Cognates ending in -iqué}
+By replacing a \textbf{-ique} ending within a French adjective with \textit{-ic} or \textit{-ical} the corresponding English word may often be recognized.
+\begin{center}
+	\begin{tabular}{lll}
+		mathematique & identique & symetrique \\
+	  geometrique & homologique & cohomologique\\ 
+	  acyclique & specifique & homotopique \\
+	  réciproque & topologique & réciproque\\
+	\end{tabular}
+\end{center}
+
+\subsubsection{False friends}
+These words appear to be exact cognates but have different meanings. Some important examples have been added from [Stack]
+\begin{center}
+	\begin{tabular}{ll} 
+	\textbf{actuel, actuelle} & current,present-day \\
+	\textbf{application} & function \\
+  \textbf{but} & target(of a morphism),purpose, goal \\
+	\textbf{car} & for; becasue \\
+	\textbf{comment} & ??? \\
+	\textbf{commodité} & convenience \\
+	\textbf{conference} & lecture \\
+	\textbf{court, -e} & short \\
+	\textbf{encore} & ??? \\
+	\textbf{inconvénient} & disadvantage \\
+	\textbf{lecture} & reading \\
+	\textbf{or} & now;but;gold \\
+	\textbf{phrase} & sentence \\
+	\textbf{pour} & for, in order to \\
+	\textbf{démonstrations}  & demonstration, show \\
+	\textbf{limitation} & restriction\\
+	\textbf{large} & wide, large (but also) generous\\
+	\textbf{on} & one \\
+	\textbf{résumé} & résumé (but also) summary \\
+	\textbf{moment} & moment (but also) occasion \\
+	\textbf{départ} & depart (but also) start \\
+	\textbf{plus} & more \\
+	\textbf{a} & has \\
+	\textbf{à} & to, at, in \\
+	\textbf{schema} & scheme (but also) diagram \\
+	\textbf{propos} & purpose, talk \\
+	\textbf{suites} & consequence, series, sequence, continuation   \\
+	\textbf{encore} & still, again, yet \\
+	\textbf{former} &  to form \\
+	\textbf{prolongement} & extension; continuation	\\
+	\textbf{rapport} & link, connection; report; return,yield \\
+	\textbf{premier} first, principal, distinguished
+	\end{tabular}
+\end{center}
+
+\subsubsection{Definite article ("the") - \textit{le,la,l',les} }
+The words \textit{le,la,l',les} are translated as \textit{the}. The first three are used with singular nouns and \textbf{les} is used for plural nouns.
+
+\textbf{le} is used for masculine nouns - \textbf{le morphisme}.
+
+\textbf{la} is used before feminine nouns - \textbf{la catégorie}
+
+\textbf{l'} is used before any singular noun beginning with a vowel sound - \textbf{l'axiome}
+
+\textbf{les} is used before any plural noun - \textbf{les morphismes, les catégories, les axiomes}
+
+The gender of nouns is indicated in the vocabulary via the definite article as follows
+
+masculine noun e.g., \textbf{le complexe}
+
+feminine nouns e.g., \textbf{la définition}
+
+Note that a small number of nouns have the same form as the plural.
+
+Also, for adjectives ending in \textbf{-au} or \textbf{-al} the plural ending has \textbf{-aux}. For example
+
+\begin{center}
+	\begin{tabular}{ll} 
+	\textbf{singular} & \textbf{plural} \\
+	local & locaux \\
+	global & globaux \\
+	principal & principaux
+	\end{tabular}
+\end{center}
+
+\subsection{Exercises 1}
+Translate the following into English.
+
+\begin{center}
+	\begin{tabular}{ll} 
+	la limite & le théorème  \\
+	la situation & l'analogue  \\
+	le but & le triangle  \\
+	la construction & la suite \\
+	l'equivalence & la t-structure \\
+	la dimension & la proposition \\
+	l'image & l'inclusion \\
+	l'automorphisme & la dualitié \\ 
+	\end{tabular}
+~~\\
+~~\\
+	\begin{tabular}{ll} 
+	algébrique & geometrique \\ 
+	canonique (?) & homologique \\
+	historique & systematique\\
+	identique & axiomatique	  
+	\end{tabular}
+~~\\
+~~\\
+	\begin{tabular}{ll} 
+	les images & les t-structures \\ 
+	les foncteurs & les assertions \\
+	les suites & les axiomes  
+	\end{tabular}
+	
+\end{center}
+
+\subsubsection{Indefinite article - \textit{un,une,des} }
+The words \textbf{un} and \textbf{une} can be translated as \textit{a} or \textit{an}. Masculine singular nouns use \textbf{Un} while feminine use \textbf{une}. The word \textbf{Des} means \textit{some} and is used before plural nouns - often it can be left untranslated. Some examples from [Ill] and [BGG] are
+
+\begin{center}
+	\begin{tabular}{llll} 
+	un triangle & a triangle & des triangles & (some) triangles \\
+	une condition & a condition & des conditions & (some) conditions \\
+	une catégorie & a categorie & des catégories & (some) categories \\
+	une t-structure & a t-structure & des t-structures & (some) t-structures 
+	\end{tabular}
+\end{center}
+
+\subsubsection{Plurals of nouns}
+Usually nouns become plural by simply adding '-s' but some nouns in their singular form have the endings '-s','-x' or '-z'. The plural form of these singular nouns does not change. In this case, the article 'les' or 'le' can be used to check whether the noun is singular or plural. Some examples are
+
+
+\begin{center}
+	\begin{tabular}{lllll} 
+	le faisceaux & the sheaf & ~~~ & les faisceaux & the sheaves \\
+	le cas & the case & ~~~ & les cas & the cases \\
+	le choix & the choice & ~~~ & les choix & the choices \\
+	l'anneaux & the ring & ~~~ & les anneaux (shortened form?) & the rings
+	\end{tabular}
+\end{center}
+
+
+\subsubsection{-ment words}
+\begin{center}
+	\begin{tabular}{llll} 
+uniformément & uniformly	\\
+partiellement & partially	\\
+naturellement & naturally	\\
+essentiellement & essentially	\\
+respectivement & respectively	\\
+nécessairement & necessarily	\\
+suffisamment & sufficiently (enough)	\\
+dualement & dually \\
+correctment & correctly \\
+automatiquement & automatically \\
+homotopiquement & homotopically	\\
+recouvrement & collection?,covering?ensemble?	\\
+localement & locally	\\
+isomorphiquement & isomorphically	\\
+linéairment & linearly \\
+évidemment & obviously	\\
+fonctoriellement & functorially	\\
+également &  equally, likewise, also	\\
+canoniquement & canonically	\\
+uniquement & uniquely \\
+directement & directly	\\
+respectivement & respectively	\\
+inversement & conversely	\\
+réciproquement & reciprocally	\\
+immédiatement & immediately	\\
+successivement & successively \\
+simplement & simply \\
+facilement & easily	\\
+trivialement & trivially	\\
+précisément & precisely	\\
+fidèlement & faithfully	\\
+purement & purely	\\
+généralement & generally, usually	\\
+forment & form	\\
+seulement & only	\\
+pleinement(*) & fully	
+	\end{tabular}
+\end{center}
+
+Some phrases are given to cosolidate the above material. Note that adjectives usually follow the noun they modify as seen from these examples:
+
+\begin{center}
+	\begin{tabular}{ll} 
+		les catégories additives & the additive categories \\
+		un espace topologique & a topological space \\
+		la dimension cohomologique & the cohomological dimension \\
+		une catégorie abélienne & an abelian category \\
+		une résolution injective & an injective resolution \\
+		un triangle exact & an exact triangle \\
+		un faisceau d'anneaux & a sheaf of rings \\
+		foncteur identique & identity functor (?) \\
+		les deux suites exactes & the two exact sequences \\
+		les systèmes locaux & the local systems \\
+		invariants cohomologiques globaux & global cohomological invariants	\\
+		les espaces localement compacts & locally compact spaces \\
+		évidemment un ensemble constructible & ... obviously a constructable sequence ... \\
+		résulte trivialement & trivial result
+	\end{tabular}
+\end{center}
+
+\subsubsection{Prepositions}
+\begin{center}
+	\begin{tabular}{ll}
+		\textbf{à} & to \\
+	  \textbf{apres} & after \\
+	  \textbf{avant} de, before \\
+	  \textbf{avec} & with \\
+	  \textbf{d'apres} & according to \\
+		\textbf{dans} & in \\
+		\textbf{de} & of; from \\
+		\textbf{par} & by, with, through \\
+		\textbf{pour} & in order to, to- \\
+		\textbf{sans} & without \\
+		\textbf{selon} & according to \\
+		\textbf{sous} & under , sub- \\
+		\textbf{suivant} & according to, following, next \\
+		\textbf{sur} & in, on (a topic) 
+	\end{tabular}
+\end{center}
+
+Note that \textbf{de} becomes \textbf{d'} before a vowel
+
+Preposition examples
+\begin{center}
+	\begin{tabular}{ll} 
+		Dans le cas ... & In the case ... \\
+		dans la catégorie C & in the category C \\
+		un faisceau sur X & a sheaf on X \\
+		action sur les complexes & action on the complexes \\
+		un sous-complexe & a sub-complex \\
+		la sous-catégorie & the sub-category \\
+		d'après la définition & according to the definition \\
+		coincide avec le complexe & coincide with the complex \\
+		avec $\beta \circ \alpha = 0$ &  with $\beta \circ \alpha = 0$\\
+		sans les restrictions & without the restrictions \\
+		sans condition sur $U$ & without the condition on $U$ \\
+		par le symbole $\equiv$ & by the symbol $\equiv$ \\
+		par définition & by definition \\
+		Suivant la terminologle introduite dans ... & According to the terminology introduced in ... \\
+		Les conditions suivantes sont équivalentes & The following conditions are equivalent \\
+		selon le schéma\footnote{schéma = diagram} suivant & according to the following diagram 
+	\end{tabular}
+\end{center}
+
+\subsubsection{Infinitives - Verbs ending in '-er','-ir','-re'}
+Verbs with these endings are said to be in the infinitive form. As a common example we have \textbf{prouver} = \textit{to prove}. The following examples are from [BBD].
+Note 'notre' is not a verb - it means 'our'. Simillarly, 'degré' is just 'degree'.
+
+\begin{center}
+	\begin{tabular}{ll} 
+		\textbf{ajouter}& to add, to supplement   \\
+		\textbf{appliquer} & to apply, to put to use		\\
+		\textbf{baaatir} & to construct, to build \\
+		\textbf{changer}& to change, to modify   \\
+		\textbf{compléter}& to supplement, to complete   \\
+		\textbf{déduire}& to deduct, to take from, to deduce  \\
+		\textbf{définir}& to define, to specify \\
+		\textbf{disposer}& to arrange, to set out \\
+		\textbf{donner}& to give, to show \\
+		\textbf{échanger} & exchange, interchange \\
+		\textbf{expliquer}&  to explain, to show\\
+		\textbf{filtré} & to filter?    \\
+		\textbf{généeraliser} & to generalize \\
+		\textbf{marquer}& to label, to signify, to mark \\
+		\textbf{montrer} & to show, to demonstrate \\
+		\textbf{partir}&  to go, to leave, to start\\
+		\textbf{préciser} & to specify \\
+		\textbf{prendre}& to take \\
+		\textbf{renforcer} & to strengthen, to reinforce \\ 
+		\textbf{répresenter} & to represent \\
+		\textbf{simplifier} & to simplify \\
+		\textbf{supérieure}& ??   \\
+		\textbf{tourner}& to rotate, to turn   \\
+		\textbf{trouver}& to find, to identify, to locate \\
+		\textbf{vérifier} & to prove, to check 
+	\end{tabular}
+\end{center}
+
+Note: The preposition \textbf{de} has the meaning 'to-' before an infinitive (see list above). Also note that \textbf{de} becomes \textbf{d'} before a vowel.  Some examples of infinitive phrases are
+\begin{center}
+	\begin{tabular}{ll} 
+			\textbf{d'}appliqu\textbf{er} & to apply \\
+			Il suffit (enough,sufficient) \textbf{d'}appliqu\textbf{er} & It is sufficient/enough to apply \\
+			\textbf{de} dédui\textbf{re}  & to deduce \\
+			d'expliquer les axiomes & to explain the axioms \\
+			Donn\textbf{er} l'exemple où (where) $A$ est l'anneau local & Give an example where $A$ is a local ring \\
+			Prend\textbf{re} par exemple & Take for example \\
+			Pour vérifi\textbf{er} qu'il est surjectif & To check it is surjective \\
+			Pour montr\textbf{er} ... & In order to show... \\
+			Ceci (this) permet \textbf{d'}appliqu\textbf{er} la formule de Kunneth & This allows us to apply the Kunneth formula 
+	\end{tabular}
+\end{center}
+
+\subsubsection{Present tense of -er verbs}
+\begin{center}
+	\begin{tabular}{ll} 
+	On trouve & We find  \\
+	
+	\end{tabular}
+\end{center}
+
+Examples from EGA
+\begin{center}
+	\begin{tabular}{l} 
+on trouve un homomorphisme canonique fonctoriel \\
+on trouve un diagramme commutatif \\
+on trouve une suite exacte \\
+\end{tabular}
+\end{center}
+
+\subsubsection{The propsitions \textbf{à} and \textbf{de} }
+The preposition \textbf{à} is usually translated as 'at' or 'to'. It is often contracted so that that \textbf{au} is the contracted form of 'à la' and similarly 'aux' is the contracted form of 'à les'. They are both usually translated as 'to the' or 'at the'.
+\begin{center}
+	\begin{tabular}{ll} 
+isomorphe au foncteur identité & isomorphic to the identiy functor \\
+au point z & at the point z \\
+canoniquement isomorphes aux foncteurs & canonically isomorphic to the functors \\
+compatibles aux actions & compatible with the actions \\
+	\end{tabular}
+\end{center}
+
+Similary, the preposition \textbf{de} is usually translated as 'of' or 'from'. The contracted form of 'de le' is \textbf{du} and the contracted form of 'de les' if \textbf{des} - they both have the meaning 'of the' or 'from the'
+\begin{center}
+	\begin{tabular}{ll} 
+		La theorie des faisceaux & The theory of sheaves\\
+		La catégorie des foncteurs contravariants exacts & The category of exact contravariant functors
+	\end{tabular}
+\end{center}
+
+We now turn to the specific mathematical vocabulary required for reading [Tok] (with some extra terms from [BBD]). The following list does not contain the obvious cognates (e.g. adjoint, projection) that have been listed earlier.
+
+\subsubsection{Mathematical vocabulary}
+\begin{center}
+	\begin{tabular}{ll} 
+		\textbf{anneau}& ring \\
+		\textbf{acyclicité} & acyclicity \\
+		\textbf{carré} & square \\
+		\textbf{conoyau} & cokernel \\
+		\textbf{coeur} & core (heart) of a derived..? \\
+		\textbf{discontinu} & discontinuous \\
+		\textbf{droit}& right \\
+		\textbf{entier} & integral \\
+		\textbf{espace}& space \\
+		\textbf{fermé}& closed(set) \\
+		\textbf{fidèle} & faithfull, exact, true \\
+		\textbf{fini} & finite \\
+		\textbf{flèche} & arrow \\
+		\textbf{foncteur} & functor \\
+		\textbf{gauche}& left \\
+		\textbf{infinis}& infinite \\
+		\textbf{noyau} & kernel \\
+		\textbf{nul} & null,zero,void,no,not any \\
+		\textbf{ouvert}& open(set) \\
+		\textbf{plein} & full, whole \\
+		\textbf{recouvrement} & cover (topological) \\
+		\textbf{si et seulement si} & if and only if \\
+		\textbf{sous-} & sub- \\
+		\textbf{plongement} & embedding (from immersion, plunge) \\
+	\end{tabular}
+\end{center}
+
+Mathematical vocabulary examples
+\begin{center}
+	\begin{tabular}{ll} 
+		Pour tout entire $a$ & For all integral $a$ \\
+		carré commutatif & commutative square \\
+		un faisceau d'anneaux $\mathcur{O}$ & the sheaf of rings $\mathcur{O}$ \\
+		faisceau de $\mathcur{O}$-modules à gauche & sheaf of left $\mathcur{O}$-modules \\
+		plongements de sous-complexes $X \hookrightarrow Y$ & embeddings of sub-complexes $X \hookrightarrow Y$
+	\end{tabular}
+\end{center}
+
+UPTO - STACK - Upto page 19, section 25 - present tense 'ent' type verbs.
+UPTO - I've done about 170 words. Need 60 more for pages 18 and 19. Perhaps do 30 useful ones and leave single appearance words for footnotes.
+
+\subsubsection{Frequent vocabulary}
+\begin{center}
+	\begin{tabular}{ll} 
+		\textbf{toujours} & always \\
+		\textbf{ce},\textbf{cet},\textbf{cette} & this \\
+		\textbf{ces} & these, those \\
+		\textbf{ceci} & this \\
+		\textbf{cela} & that \\
+		\textbf{celle} & that, that one \\
+		\textbf{celles} & those \\
+		\textbf{elle}& this \\
+		\textbf{et}& and \\
+		\textbf{en}& in \\
+		\textbf{nous}& we \\
+		\textbf{sont} & are \\
+		\textbf{est} & is \\
+		\textbf{si} & if \\
+		\textbf{seul} & single, only \\
+\end{tabular}
+\end{center}
+
+
+\subsubsection{Commonly used words and phrases}
+\begin{center}
+	\begin{tabular}{ll} 
+		\textbf{pour}& for \\
+		\textbf{pour tout}& for all \\
+		\textbf{toujours} & always \\
+		\textbf{méme} & same \\
+		\textbf{donc} & then, thus, hence, therefore \\
+		\textbf{On a donc} & therefore (?) \\
+		\textbf{alors} & therefore, hence,thus \\
+		\textbf{Soit...} & Suppose...\\
+		\textbf{Soient...} & Let there be...\\
+		\textbf{Lorsque...} & When...\\
+		\textbf{Il existe...} & There exists...\\
+		\textbf{Rappelons..} & Recall...
+	\end{tabular}
+\end{center}
+
+Le premier & first, principal
+En particulier & In particular
+dernier & last, ending
+
+
+\subsubsection{Exercize 1}
+All of the following phrases are taken from [Ill],[BBD],[EGA] or [SGA]. Translate these phrases (answers may be found in the appendix).
+
+\begin{center}
+	\begin{tabular}{ll} 
+	immédiatement des définitions & immediately from the definitions \\
+  dans la catégorie des groupes abéliens & from the category of abelian groups \\
+  dans le cas général & in the general case \\
+  Lorsque $F$ est exact à gauche & when $F$ is left exact \\
+  Soit $X$ une variété topologique de dimension $n$ & Suppose $X$ is a topological variety of dimension $n$. \\
+  Il existe une résolution & There exists a resolution \\
+	\end{tabular}
+\end{center}
+
+\subsection{Sentence starters}
+At this point we break with the order of presentation in [blah] and focus on the common ways to begin a mathematical sentence.
+
+\subsubsection{Pour}
+The word 'pour' means 'for' or 'in order to'. The phrase 'pour tout' 'for all' is very common. Another common usage is with the '-er' (indicative) form of a verb. For example 'Pour prouver' 'to prove' and 'Pour vérifier' 'to check'
+
+\begin{center}
+	\begin{tabular}{ll} 
+	\textbf{Pour la definition}&  \\
+	\textbf{Pour tout/toute/tous/toutes}& For all \\
+	\textbf{Pour vérifier}& To \\
+	\textbf{Pour $A$ une...}&  \\
+	\textbf{Pour prouver}& To prove... \\
+	\textbf{Pour ètre} & \\
+	\end{tabular}
+\end{center}
+
+\subsubsection{Misc Vocabulary}
+\begin{tabular}{ll}
+etude & study \\
+calcul & calculation \\
+\end{tabular}
+
+
+
+
+
+
+
+\newpage
+\section{Appendix 1 - SGA II Chapter 1 first 3 pages}
+
+Frequency of vocabulary
+\begin{center}
+	\begin{tabular}{ll} 
+ouvert(e) 16 & cover \\
+dans 11 & in \\
+pour 9 & for, in order to \\
+par 9 & through \\
+au,aux 8 & to the, with the, at the \\
+sous 7 & sub- \\
+donc 7 & then, therefore \\
+cas 6 & case \\
+partie 6 & part \\
+si 5 & so, however; if, whether  \\
+si et seulement & iff  \\
+alors 5 &then, at that time  \\
+fermé 5 &closed (set) (also firm, steady)  \\
+comme 5 &as, like, as if  \\
+etre 4 &to be, to exist, to belong  \\
+Bien 4 & good, well  \\
+bien entendu & of course  \\
+bien que & although, though   \\
+bien sur & of course, certainly  \\
+tel 5 & so, so much  \\
+nous 4 & we  \\
+tout 4 & all, any, every (? check elsewhere)  \\
+support 3 & \\
+localement 3 & \\
+fermée 3  & \\
+mˆeme 3 & \\
+notons 3 & \\
+connu 3 & \\
+définir 3 
+	\end{tabular} 
+\end{center}
+
+UPTO: Next...(1). Underline and include nouns from original's first 3-4 pages. (2) May need bit more on verb endings (3) Take a look at [5] J. Nekovar, Introduction to Mathematical English.
+http://people.math.jussieu.fr/ nekovar/co/en/
+
+\end{document}
